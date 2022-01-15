@@ -9,8 +9,18 @@
     </div>
     <div class="col-lg-4 col-md-4 border-right">
         <h5>Medium Priority List</h5>
+        <div class="row mb-3" *ngFor="let task of mediumList">
+            <div class="col">
+                <app-todo-task [task]="task"></app-todo-task>
+            </div>
+        </div>
     </div>
     <div class="col-lg-4 col-md-4">
         <h5>Low Priority List</h5>
+        <div class="row mb-3" *ngFor="let task of lowList">
+            <div class="col">
+                <app-todo-task [task]="task"></app-todo-task>
+            </div>
+        </div>
     </div>
 </div>

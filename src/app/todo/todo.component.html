@@ -5,7 +5,12 @@
                 <app-todo-form (addTaskEvent)="getTask($event)"></app-todo-form>
             </div>
             <div class="col-lg-9 col-md-9">
-                <app-todo-list [highList]="highPriorityList"></app-todo-list>
+                <app-todo-list
+                    [highList]="highPriorityList"
+                    [mediumList]="mediumPriorityList"
+                    [lowList]="lowPriorityList"
+                >
+                </app-todo-list>
             </div>
         </div>
     </div>

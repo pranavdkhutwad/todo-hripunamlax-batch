@@ -8,5 +8,6 @@ import { Task } from 'src/app/interfaces/common.interface';
 })
 export class TodoListComponent {
   @Input() highList?: Task[];
-
+  @Input() mediumList?: Task[];
+  @Input() lowList?: Task[];
 }
