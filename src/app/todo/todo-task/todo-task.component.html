@@ -1,5 +1,11 @@
-<div class="card" [ngClass]="getCardBorder(task?.priority)">
-    <div class="card-header bg-transparent">{{ task?.name }}</div>
+<div appTodo class="card" [ngClass]="getCardBorder(task?.priority)">
+    <div class="card-header bg-transparent d-flex justify-content-between">
+        <div>{{ task?.name }}</div>
+        <div class="card-actions">
+            <span class="oi oi-pencil mr-3 text-info"></span>
+            <span (click)="deleteTask(task?.id)" class="oi oi-trash text-danger"></span>
+        </div>
+    </div>
     <div class="card-body">
        {{ task?.desc }}
     </div>

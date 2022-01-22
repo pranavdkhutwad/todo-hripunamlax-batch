@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Task } from '../interfaces/common.interface';
 import { TodoService } from './services/todo.service';
 
@@ -7,32 +7,40 @@ import { TodoService } from './services/todo.service';
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css']
 })
-export class TodoComponent  {
+export class TodoComponent implements OnInit  {
   highPriorityList: Task[] = [];
   mediumPriorityList: Task[] = [];
   lowPriorityList: Task[] = [];
 
   constructor(private todoService: TodoService) { }
-  getTask(task: Task) {
-    switch(task.priority) {
-      case 1: {
-        // add in high priority list.
-        this.highPriorityList = this.todoService.getList(task, this.highPriorityList);
-        break;
-      }
-      case 2: {
-        // add in medium priority list.
-        this.mediumPriorityList = this.todoService.getList(task, this.mediumPriorityList);
-        break;
-      }
-      case 3: {
-        // add in low priority list.
-        this.lowPriorityList = this.todoService.getList(task, this.lowPriorityList);
-        break;
-      }
-      default: {
-        console.log('Unknown priority...');
-      }
-    }
+
+  ngOnInit() {
+    this.todoService.getTasks().subscribe((response: any) => {
+      console.log('response from firebase ==>', response);
+      const tasks = this.todoService.getTasksList(response);
+      console.log('array of objects ==>', tasks);
+      this.updateTodoCategories(tasks);
+     
+      
+    });
+  }
+
+  updateTodoCategories(tasks: Task[]) {
+    const {
+      highPriorityList,
+      mediumPriorityList,
+      lowPriorityList
+    } = this.todoService.getListCategories(tasks);
+    this.highPriorityList = highPriorityList;
+    this.mediumPriorityList = mediumPriorityList;
+    this.lowPriorityList = lowPriorityList;
+  }
+  
+  getTasks(tasks: Task[]) {
+    this.updateTodoCategories(tasks);
+  }
+
+  captureDeleteEvent(tasks: Task[]) {
+    this.updateTodoCategories(tasks);
   }
 }

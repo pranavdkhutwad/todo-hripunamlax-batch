@@ -7,4 +7,25 @@ import { Component } from "@angular/core";
 })
 export class AppHeaderComponent {
     title: string = 'Todo App';
+    // heros = [
+    //     {
+    //         name: 'Hrishikesh',
+    //         canFly: true
+    //     },
+    //     {
+    //         name: 'Punam',
+    //         canFly: true
+    //     },
+    //     {
+    //         name: 'Ganesh',
+    //         canFly: false
+    //     }
+    // ];
+
+    // addNewHero() {
+    //     this.heros = [...this.heros, {
+    //         name: 'Laxman',
+    //         canFly: true
+    //     }];
+    // }
 }

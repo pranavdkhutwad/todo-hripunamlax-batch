@@ -7,34 +7,28 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './components/header/app-header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TodoComponent } from './todo/todo.component';
-import { TodoFormComponent } from './todo/todo-form/todo-form.component';
-import { TodoListComponent } from './todo/todo-list/todo-list.component';
-import { TodoTaskComponent } from './todo/todo-task/todo-task.component';
 
-// Custom Directives.
-import { TodoDirective } from './todo/directives/todo.directive';
+// Custom Pipes.
+import { FileSizePipe } from './shared/pipes/filesize.pipe';
+import { FlyHerosPipe } from './shared/pipes/fly-heros.pipe';
 
-// Custom Services.
-import { TodoService } from './todo/services/todo.service';
-import { TodoIdDirective } from './todo/directives/todo-id.directive';
+// Custom Modules
+import { TodoModule } from './todo/todo.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     AppHeaderComponent,
-    TodoComponent,
-    TodoFormComponent,
-    TodoListComponent,
-    TodoTaskComponent,
-    TodoDirective,
-    TodoIdDirective
+    FileSizePipe,
+    FlyHerosPipe
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    TodoModule
   ],
-  providers: [ TodoService ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

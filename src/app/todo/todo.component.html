@@ -2,13 +2,15 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-lg-3 col-md-3">
-                <app-todo-form (addTaskEvent)="getTask($event)"></app-todo-form>
+                <app-todo-form (addTaskEvent)="getTasks($event)"></app-todo-form>
             </div>
             <div class="col-lg-9 col-md-9">
                 <app-todo-list
                     [highList]="highPriorityList"
                     [mediumList]="mediumPriorityList"
                     [lowList]="lowPriorityList"
+                    (deleteEvent)="captureDeleteEvent($event)"
+
                 >
                 </app-todo-list>
             </div>

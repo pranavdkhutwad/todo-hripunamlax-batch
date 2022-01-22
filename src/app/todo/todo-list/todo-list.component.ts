@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from 'src/app/interfaces/common.interface';
 
 @Component({
@@ -10,4 +10,11 @@ export class TodoListComponent {
   @Input() highList?: Task[];
   @Input() mediumList?: Task[];
   @Input() lowList?: Task[];
+
+  @Output() deleteEvent: EventEmitter<Task[]> = new EventEmitter<Task[]>();
+  
+
+  captureDeleteTask(tasks: Task[]) {
+    this.deleteEvent.emit(tasks);
+  }
 }
