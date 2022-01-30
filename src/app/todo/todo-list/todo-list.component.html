@@ -3,7 +3,7 @@
         <h5>High Priority List</h5>
         <div class="row mb-3" *ngFor="let task of highList">
             <div class="col">
-                <app-todo-task (deleteEvent)="captureDeleteTask($event)" [task]="task"></app-todo-task>
+                <app-todo-task (editEvent)="captureEditTask($event)" (deleteEvent)="captureDeleteTask($event)" [task]="task"></app-todo-task>
             </div>
         </div>
     </div>
@@ -11,7 +11,7 @@
         <h5>Medium Priority List</h5>
         <div class="row mb-3" *ngFor="let task of mediumList">
             <div class="col">
-                <app-todo-task (deleteEvent)="captureDeleteTask($event)" [task]="task"></app-todo-task>
+                <app-todo-task (editEvent)="captureEditTask($event)" (deleteEvent)="captureDeleteTask($event)" [task]="task"></app-todo-task>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <h5>Low Priority List</h5>
         <div class="row mb-3" *ngFor="let task of lowList">
             <div class="col">
-                <app-todo-task (deleteEvent)="captureDeleteTask($event)" [task]="task"></app-todo-task>
+                <app-todo-task (editEvent)="captureEditTask($event)" (deleteEvent)="captureDeleteTask($event)" [task]="task"></app-todo-task>
             </div>
         </div>
     </div>

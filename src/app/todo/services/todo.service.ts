@@ -45,6 +45,11 @@ export class TodoService {
         return this.http.delete(`https://todos-832e5-default-rtdb.firebaseio.com/todos/${id}.json`);
     }
 
+    updateTask(task: Task, id: any) {
+        return this.http.put(`https://todos-832e5-default-rtdb.firebaseio.com/todos/${id}.json`, task);
+    }
+    
+
     getName() {
         return this.name;
     }

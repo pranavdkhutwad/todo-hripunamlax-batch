@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,6 +14,7 @@ import { TodoIdDirective } from './directives/todo-id.directive';
 
 // Custom Services.
 import { TodoService } from './services/todo.service';
+import { TodoEditFormComponent } from './todo-edit-form/todo-edit-form.component';
 
 @NgModule({
     declarations: [
@@ -22,10 +23,12 @@ import { TodoService } from './services/todo.service';
         TodoListComponent,
         TodoTaskComponent,
         TodoDirective,
-        TodoIdDirective
+        TodoIdDirective,
+        TodoEditFormComponent
     ],
     imports: [
         FormsModule,
+        ReactiveFormsModule,
         CommonModule,
         HttpClientModule
     ],

@@ -2,7 +2,7 @@
     <div class="card-header bg-transparent d-flex justify-content-between">
         <div>{{ task?.name }}</div>
         <div class="card-actions">
-            <span class="oi oi-pencil mr-3 text-info"></span>
+            <span (click)="openEditModal(task)" class="oi oi-pencil mr-3 text-info"></span>
             <span (click)="deleteTask(task?.id)" class="oi oi-trash text-danger"></span>
         </div>
     </div>

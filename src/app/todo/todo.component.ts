@@ -19,9 +19,7 @@ export class TodoComponent implements OnInit  {
       console.log('response from firebase ==>', response);
       const tasks = this.todoService.getTasksList(response);
       console.log('array of objects ==>', tasks);
-      this.updateTodoCategories(tasks);
-     
-      
+      this.updateTodoCategories(tasks); 
     });
   }
 
@@ -41,6 +39,10 @@ export class TodoComponent implements OnInit  {
   }
 
   captureDeleteEvent(tasks: Task[]) {
+    this.updateTodoCategories(tasks);
+  }
+
+  captureEditEvent(tasks: Task[]) {
     this.updateTodoCategories(tasks);
   }
 }

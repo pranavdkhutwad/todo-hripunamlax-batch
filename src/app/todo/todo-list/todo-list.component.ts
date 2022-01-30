@@ -12,9 +12,14 @@ export class TodoListComponent {
   @Input() lowList?: Task[];
 
   @Output() deleteEvent: EventEmitter<Task[]> = new EventEmitter<Task[]>();
+  @Output() editEvent: EventEmitter<Task[]> = new EventEmitter<Task[]>();
   
 
   captureDeleteTask(tasks: Task[]) {
     this.deleteEvent.emit(tasks);
+  }
+
+  captureEditTask(tasks: Task[]) {
+    this.editEvent.emit(tasks);
   }
 }
